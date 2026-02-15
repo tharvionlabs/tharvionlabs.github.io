@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Savings Growth Calculator | Tharvion Labs</title>
+  <meta name="description" content="Calculate how your savings grow over time using compound interest." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div class="container">
+
+<nav class="nav">
+<div class="brand">
+<div class="logo"></div>
+<div>
+<h1>Tharvion Labs</h1>
+<p>Finance Tools</p>
+</div>
+</div>
+<div class="navlinks">
+<a href="../index.html">Labs Home</a>
+<a href="index.html">Finance Home</a>
+<a href="tools.html">Tools</a>
+<a href="blog.html">Blog</a>
+</div>
+</nav>
+
+<section class="hero" style="grid-template-columns:1fr">
+<div class="card">
+<h2>Savings Growth Calculator</h2>
+<p>Estimate how your savings grow over time using compound interest.</p>
+</div>
+</section>
+
+<section class="card">
+
+<form id="calc">
+
+<div class="form-row">
+<div>
+<label>Initial Amount (LKR)</label>
+<input id="principal" type="number" value="100000">
+</div>
+
+<div>
+<label>Annual Interest Rate (%)</label>
+<input id="rate" type="number" value="10">
+</div>
+</div>
+
+<div class="form-row">
+<div>
+<label>Years</label>
+<input id="years" type="number" value="10">
+</div>
+
+<div>
+<label>Monthly Contribution (LKR)</label>
+<input id="monthly" type="number" value="10000">
+</div>
+</div>
+
+<br>
+<button class="btn" type="button" onclick="calculate()">Calculate</button>
+
+</form>
+
+<div class="hr"></div>
+
+<div class="card kpi">
+<div class="label">Final Amount</div>
+<div class="value" id="result">LKR 0</div>
+</div>
+
+</section>
+
+<footer class="footer">
+© <span id="year"></span> Tharvion Labs
+</footer>
+
+</div>
+
+<script>
+function calculate(){
+
+let P = Number(document.getElementById("principal").value);
+let r = Number(document.getElementById("rate").value)/100/12;
+let n = Number(document.getElementById("years").value)*12;
+let m = Number(document.getElementById("monthly").value);
+
+let future = P*Math.pow(1+r,n) + m*((Math.pow(1+r,n)-1)/r);
+
+document.getElementById("result").innerHTML =
+"LKR " + future.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+}
+calculate();
+</script>
+
+</body>
+</html>
