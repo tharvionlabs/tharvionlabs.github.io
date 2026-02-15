@@ -162,3 +162,9 @@ textarea{min-height:120px;resize:vertical}
 @media (max-width:700px){
   .country-select{ min-width:140px; }
 }
+/* Fix dropdown options visibility */
+.country-select option{
+  color: #111;        /* dark text */
+  background: #fff;   /* white background */
+}
+
