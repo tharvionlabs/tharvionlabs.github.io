@@ -115,3 +115,50 @@ textarea{min-height:120px;resize:vertical}
 .kpi{display:flex;flex-direction:column;gap:6px}
 .kpi .value{font-size:20px;font-weight:800}
 .kpi .label{font-size:12px;color:var(--muted)}
+
+/* --- Country selector (nav) --- */
+.nav { gap: 12px; }
+.navlinks { flex: 1; align-items: center; }
+
+.country-wrap{
+  display:flex;
+  align-items:center;
+  position:relative;
+}
+
+.country-select{
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+
+  padding:8px 34px 8px 12px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.05);
+  color:var(--text);
+  font-size:13px;
+  line-height:1;
+  cursor:pointer;
+  min-width:160px;
+}
+
+.country-wrap::after{
+  content:"▾";
+  position:absolute;
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--muted);
+  pointer-events:none;
+  font-size:12px;
+}
+
+.country-select:focus{
+  outline:none;
+  border-color:rgba(122,92,255,.55);
+  box-shadow: 0 0 0 3px rgba(122,92,255,.15);
+}
+
+@media (max-width:700px){
+  .country-select{ min-width:140px; }
+}
